@@ -1,45 +1,45 @@
 ---
-import { Barbel } from "../icons/Barbel.jsx";
-import { Brain } from "../icons/Brain.jsx";
+import { Barbel } from '../icons/Barbel.jsx'
+import { Brain } from '../icons/Brain.jsx'
 ---
 
-<div class="max-w-6xl mx-auto">
+<div class='max-w-6xl mx-auto'>
   <!-- Header -->
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold text-blue-800 mb-4">
+  <div class='text-center m-10'>
+    <h1 class='text-xl md:text-3xl font-bold text-blue-800 mb-4 text-center'>
       Sistema de Evaluación de Escala de SedoAnalegesia
     </h1>
   </div>
 
   <!-- Información sobre escalas -->
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold text-blue-700 mb-6">
+  <section class='mb-12'>
+    <h2 class='text-2xl text-center font-bold text-blue-700 mb-6'>
       Escalas de Evaluación Disponibles
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
       <!-- Tarjeta Dolor -->
-      <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
-        <div class="flex items-center mb-4">
+      <div class='bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500'>
+        <div class='flex items-center mb-4'>
           <div
-            class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center"
+            class='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center'
           >
-            <span class="text-blue-600 font-bold"><Barbel /></span>
+            <span class='text-blue-600 font-bold'><Barbel /></span>
           </div>
-          <h3 class="text-xl font-semibold ml-4">Escala de Dolor</h3>
+          <h3 class='text-xl font-semibold ml-4'>Escala de Dolor</h3>
         </div>
-        <p class="text-gray-600 mb-4">
+        <p class='text-gray-600 mb-4'>
           Escala Conductual de Dolor para pacientes que no pueden comunicarse
           verbalmente.
         </p>
-        <ul class="text-sm text-gray-500 space-y-1 mb-4">
+        <ul class='text-sm text-gray-500 space-y-1 mb-4'>
           <li>• Evaluación de expresión facial</li>
           <li>• Movimiento de miembros superiores</li>
           <li>• Adaptación a ventilación mecánica</li>
         </ul>
         <a
-          href="/"
-          class="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+          href='/'
+          class='inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors'
         >
           Usar Escala
         </a>
@@ -47,26 +47,26 @@ import { Brain } from "../icons/Brain.jsx";
 
       <!-- Tarjeta Sedación -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500"
+        class='bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500'
       >
-        <div class="flex items-center mb-4">
+        <div class='flex items-center mb-4'>
           <div
-            class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
+            class='w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center'
           >
-            <span class="text-green-600 font-bold"><Brain /></span>
+            <span class='text-green-600 font-bold'><Brain /></span>
           </div>
-          <h3 class="text-xl font-semibold ml-4">Escala de Sedación</h3>
+          <h3 class='text-xl font-semibold ml-4'>Escala de Sedación</h3>
         </div>
-        <p class="text-gray-600 mb-4">
+        <p class='text-gray-600 mb-4'>
           Escala de Sedación para evaluación del nivel de sedación.
         </p>
-        <ul class="text-sm text-gray-500 space-y-1 mb-4">
+        <ul class='text-sm text-gray-500 space-y-1 mb-4'>
           <li>• 10 niveles de evaluación</li>
           <li>• Combina agitación y sedación</li>
           <li>• Validada en UCI</li>
         </ul>
         <button
-          class="inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed"
+          class='inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed'
           disabled
         >
           Próximamente
@@ -75,27 +75,27 @@ import { Brain } from "../icons/Brain.jsx";
 
       <!-- Tarjeta Delirium -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500"
+        class='bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500'
       >
-        <div class="flex items-center mb-4">
+        <div class='flex items-center mb-4'>
           <div
-            class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center"
+            class='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center'
           >
-            <span class="text-purple-600 font-bold">D</span>
+            <span class='text-purple-600 font-bold'>D</span>
           </div>
-          <h3 class="text-xl font-semibold ml-4">Delirium</h3>
+          <h3 class='text-xl font-semibold ml-4'>Delirium</h3>
         </div>
-        <p class="text-gray-600 mb-4">
+        <p class='text-gray-600 mb-4'>
           Método de Evaluación de Confusión para la Unidad de Cuidados
           Intensivos.
         </p>
-        <ul class="text-sm text-gray-500 space-y-1 mb-4">
+        <ul class='text-sm text-gray-500 space-y-1 mb-4'>
           <li>• Detección de delirium</li>
           <li>• Evaluación rápida</li>
           <li>• Alta sensibilidad</li>
         </ul>
         <button
-          class="inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed"
+          class='inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed'
           disabled
         >
           Próximamente
@@ -104,27 +104,27 @@ import { Brain } from "../icons/Brain.jsx";
 
       <!-- Tarjeta Abstinencia -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500"
+        class='bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500'
       >
-        <div class="flex items-center mb-4">
+        <div class='flex items-center mb-4'>
           <div
-            class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center"
+            class='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center'
           >
-            <span class="text-purple-600 font-bold">AB</span>
+            <span class='text-purple-600 font-bold'>AB</span>
           </div>
-          <h3 class="text-xl font-semibold ml-4">Escala de Abstinencia</h3>
+          <h3 class='text-xl font-semibold ml-4'>Escala de Abstinencia</h3>
         </div>
-        <p class="text-gray-600 mb-4">
+        <p class='text-gray-600 mb-4'>
           Método de Evaluación de Confusión para la Unidad de Cuidados
           Intensivos.
         </p>
-        <ul class="text-sm text-gray-500 space-y-1 mb-4">
+        <ul class='text-sm text-gray-500 space-y-1 mb-4'>
           <li>• Detección de delirium</li>
           <li>• Evaluación rápida</li>
           <li>• Alta sensibilidad</li>
         </ul>
         <button
-          class="inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed"
+          class='inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed'
           disabled
         >
           Próximamente
@@ -134,63 +134,63 @@ import { Brain } from "../icons/Brain.jsx";
   </section>
 
   <!-- Biblioteca -->
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold text-blue-700 mb-6">
+  <section class='mb-12'>
+    <h2 class='text-2xl font-bold text-blue-700 mb-6'>
       Bibliografía y Recursos
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
       <!-- Artículo 1 -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+        class='bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow'
       >
-        <div class="flex items-start mb-4">
+        <div class='flex items-start mb-4'>
           <div
-            class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+            class='w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0'
           >
             <svg
-              class="w-5 h-5 text-blue-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              class='w-5 h-5 text-blue-600'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
               ></path>
             </svg>
           </div>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">
+          <div class='ml-4'>
+            <h3 class='text-lg font-semibold text-gray-800'>
               Validación de la Escala BPS
             </h3>
-            <p class="text-sm text-gray-500">
+            <p class='text-sm text-gray-500'>
               Payen JF, et al. Critical Care Medicine 2001
             </p>
           </div>
         </div>
-        <p class="text-gray-600 text-sm mb-4">
+        <p class='text-gray-600 text-sm mb-4'>
           Estudio de validación original de la Behavioral Pain Scale en
           pacientes críticos no comunicativos.
         </p>
         <a
-          href="#"
-          class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+          href='#'
+          class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver artículo completo
           <svg
-            class="w-4 h-4 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            class='w-4 h-4 ml-1'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
         </a>
@@ -198,55 +198,55 @@ import { Brain } from "../icons/Brain.jsx";
 
       <!-- Artículo 2 -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+        class='bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow'
       >
-        <div class="flex items-start mb-4">
+        <div class='flex items-start mb-4'>
           <div
-            class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0"
+            class='w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0'
           >
             <svg
-              class="w-5 h-5 text-green-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              class='w-5 h-5 text-green-600'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
               ></path>
             </svg>
           </div>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">
+          <div class='ml-4'>
+            <h3 class='text-lg font-semibold text-gray-800'>
               Guías de Manejo del Dolor
             </h3>
-            <p class="text-sm text-gray-500">
+            <p class='text-sm text-gray-500'>
               SCCM Clinical Practice Guidelines 2018
             </p>
           </div>
         </div>
-        <p class="text-gray-600 text-sm mb-4">
+        <p class='text-gray-600 text-sm mb-4'>
           Guías actualizadas para el manejo del dolor, agitación y delirium en
           pacientes adultos de la UCI.
         </p>
         <a
-          href="#"
-          class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+          href='#'
+          class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver guías completas
           <svg
-            class="w-4 h-4 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            class='w-4 h-4 ml-1'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
         </a>
@@ -254,55 +254,55 @@ import { Brain } from "../icons/Brain.jsx";
 
       <!-- Artículo 3 -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+        class='bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow'
       >
-        <div class="flex items-start mb-4">
+        <div class='flex items-start mb-4'>
           <div
-            class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
+            class='w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'
           >
             <svg
-              class="w-5 h-5 text-purple-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              class='w-5 h-5 text-purple-600'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
               ></path>
             </svg>
           </div>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">
+          <div class='ml-4'>
+            <h3 class='text-lg font-semibold text-gray-800'>
               Evaluación del Dolor en UCI
             </h3>
-            <p class="text-sm text-gray-500">
+            <p class='text-sm text-gray-500'>
               Chanques G, et al. Intensive Care Medicine 2014
             </p>
           </div>
         </div>
-        <p class="text-gray-600 text-sm mb-4">
+        <p class='text-gray-600 text-sm mb-4'>
           Implementación sistemática de herramientas de evaluación del dolor en
           unidades de cuidados intensivos.
         </p>
         <a
-          href="#"
-          class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+          href='#'
+          class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver estudio completo
           <svg
-            class="w-4 h-4 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            class='w-4 h-4 ml-1'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
         </a>
@@ -310,55 +310,55 @@ import { Brain } from "../icons/Brain.jsx";
 
       <!-- Artículo 4 -->
       <div
-        class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+        class='bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow'
       >
-        <div class="flex items-start mb-4">
+        <div class='flex items-start mb-4'>
           <div
-            class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0"
+            class='w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0'
           >
             <svg
-              class="w-5 h-5 text-orange-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              class='w-5 h-5 text-orange-600'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
               ></path>
             </svg>
           </div>
-          <div class="ml-4">
-            <h3 class="text-lg font-semibold text-gray-800">
+          <div class='ml-4'>
+            <h3 class='text-lg font-semibold text-gray-800'>
               Protocolos de Sedoanalgesia
             </h3>
-            <p class="text-sm text-gray-500">
+            <p class='text-sm text-gray-500'>
               Barr J, et al. Critical Care Medicine 2013
             </p>
           </div>
         </div>
-        <p class="text-gray-600 text-sm mb-4">
+        <p class='text-gray-600 text-sm mb-4'>
           Recomendaciones clínicas para el manejo del dolor, agitación y
           delirium en pacientes críticos.
         </p>
         <a
-          href="#"
-          class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+          href='#'
+          class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver protocolo
           <svg
-            class="w-4 h-4 ml-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            class='w-4 h-4 ml-1'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
         </a>

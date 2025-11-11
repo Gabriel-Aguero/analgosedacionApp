@@ -1,0 +1,84 @@
+import { useState } from 'preact/hooks'
+import { Menu } from '../icons/Menu'
+import { IconHome } from '../icons/IconHome'
+import { About } from '../icons/About'
+import { FaceDolor } from '../icons/FaceDolor'
+import { IconDelirium } from '../icons/IconDelirium'
+
+const Sidebar = () => {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      {/* Botón hamburguesa (solo en móvil) */}
+      <button
+        onClick={() => setOpen(!open)}
+        className='md:hidden fixed top-4 left-1/2 z-60 p-2 bg-black  text-white rounded-lg'
+      >
+        <Menu size={24} className='text-white' />
+      </button>
+
+      {/* Overlay al abrir el menú en móvil */}
+      {open && (
+        <div
+          className='fixed inset-0 overflow-y-auto z-50 md:hidden'
+          onClick={() => setOpen(false)}
+        />
+      )}
+
+      {/* SIDEBAR */}
+      <aside
+        className={`
+          fixed top-0 left-0 min-h-screen w-full md:w-80 bg-blue-700 text-white p-6 z-50
+          flex flex-col gap-4
+          transform transition-transform duration-300
+          ${open ? 'translate-x-0' : '-translate-x-full'}
+          md:translate-x-0 md:relative
+        `}
+      >
+        <h2 className='text-xl font-bold mt-14 mb-4 text-center'>
+          Escalas de SedoAnalgesia
+        </h2>
+
+        <h3 className='border-b border-slate-400'></h3>
+
+        <nav className='flex flex-col gap-3'>
+          <a
+            href='/'
+            className='p-2 rounded hover:bg-blue-600 flex items-center gap-2 border border-slate-400 mb-4'
+          >
+            <IconHome />
+
+            <span>Inicio</span>
+          </a>
+          <a
+            href='/about'
+            className='p-2 rounded hover:bg-blue-600 flex items-center gap-2 border border-slate-400 mb-4'
+          >
+            <About />
+
+            <span>Acerca de</span>
+          </a>
+          <a
+            href='/dolor'
+            className='p-2 rounded hover:bg-blue-600 flex items-center gap-2 border border-slate-400 mb-4'
+          >
+            <FaceDolor />
+
+            <span>Escala de Dolor</span>
+          </a>
+          <a
+            href='/delirium'
+            className='p-2 rounded hover:bg-blue-600 flex items-center gap-2 border border-slate-400 mb-4'
+          >
+            <IconDelirium />
+
+            <span>Escala de Delirium</span>
+          </a>
+        </nav>
+      </aside>
+    </>
+  )
+}
+
+export default Sidebar
