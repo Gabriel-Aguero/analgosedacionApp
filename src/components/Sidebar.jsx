@@ -50,8 +50,6 @@ const Sidebar = () => {
           </h2>
         </div>
 
-        {/* <h3 className="border-b border-slate-400"></h3> */}
-
         <nav className="flex flex-col gap-3">
           <a
             href="/"
