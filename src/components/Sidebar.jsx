@@ -62,7 +62,7 @@ const Sidebar = () => {
             <span>Acerca de</span>
           </a>
           <a
-            href='/dolor'
+            href='/escala-dolor'
             className='p-2 rounded hover:bg-blue-600 flex items-center gap-2 border border-slate-400 mb-4'
           >
             <FaceDolor />

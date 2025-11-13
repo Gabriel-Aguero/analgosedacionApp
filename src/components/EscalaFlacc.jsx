@@ -252,7 +252,7 @@ const EscalaFlacc = () => {
       {/* Navegación */}
       <div class='mb-6'>
         <a
-          href='/dolor'
+          href='/escala-dolor'
           class='inline-flex items-center text-blue-600 hover:text-blue-800 mb-4 transition-colors'
         >
           <ArrowLeft />
