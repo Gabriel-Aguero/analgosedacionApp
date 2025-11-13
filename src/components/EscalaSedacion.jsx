@@ -1,313 +1,380 @@
-import { useState } from "preact/hooks";
-import { Check } from "../icons/Check";
+// src/components/EscalaSedacion.jsx
+import { useState } from 'preact/hooks'
+import { InfoCircle } from '../icons/InfoCircle'
 
 const EscalaSedacion = () => {
-  const [nivelSedacion, setNivelSedacion] = useState(null);
-  const [observaciones, setObservaciones] = useState("");
+  const [nivelSedacion, setNivelSedacion] = useState(null)
+  const [mostrarResultado, setMostrarResultado] = useState(false)
 
-  const escalaRamsay = [
+  const nivelesSedacion = [
     {
-      valor: 1,
-      descripcion: "Ansioso, agitado o inquieto",
-      caracteristicas:
-        "Paciente visiblemente nervioso, movimientos constantes, dificultad para permanecer tranquilo",
+      id: 1,
+      valor: 'no-responde',
+      texto: 'No responde',
+      descripcion: 'Sin respuesta a estímulos verbales o físicos',
+      puntaje: 0,
+      icono: '😴',
+      color: 'bg-red-100 border-red-300 text-red-800',
+      interpretacion: 'Sedación profunda - Riesgo de depresión respiratoria',
+      recomendacion:
+        'Monitorización continua de signos vitales, considerar reducción de sedación',
     },
     {
-      valor: 2,
-      descripcion: "Cooperativo, orientado y tranquilo",
-      caracteristicas:
-        "Paciente colaborador, responde adecuadamente, mantiene contacto visual, relajado",
+      id: 2,
+      valor: 'responde-nociceptivos',
+      texto: 'Responde a estímulos nociceptivos',
+      descripcion: 'Solo responde a estímulos dolorosos',
+      puntaje: 1,
+      icono: '😵',
+      color: 'bg-orange-100 border-orange-300 text-orange-800',
+      interpretacion: 'Sedación profunda - Respuesta solo al dolor',
+      recomendacion: 'Monitorización estrecha, evaluar necesidad de sedación',
     },
     {
-      valor: 3,
-      descripcion: "Somnoliento, responde a órdenes",
-      caracteristicas:
-        "Somnolencia evidente, pero responde adecuadamente a comandos verbales",
+      id: 3,
+      valor: 'responde-tacto-voz',
+      texto: 'Responde al tocarlo o a la voz',
+      descripcion: 'Responde a estímulos táctiles o verbales',
+      puntaje: 2,
+      icono: '😌',
+      color: 'bg-yellow-100 border-yellow-300 text-yellow-800',
+      interpretacion: 'Sedación moderada - Respuesta adecuada a estímulos',
+      recomendacion: 'Nivel de sedación adecuado para procedimientos',
     },
     {
-      valor: 4,
-      descripcion: "Dormido, respuesta rápida al estímulo",
-      caracteristicas:
-        "Duerme tranquilamente, responde rápidamente a estímulos táctiles o verbales suaves",
+      id: 4,
+      valor: 'despierto-calmo',
+      texto: 'Despierto o calmo',
+      descripcion: 'Paciente despierto y tranquilo',
+      puntaje: 3,
+      icono: '😊',
+      color: 'bg-green-100 border-green-300 text-green-800',
+      interpretacion: 'Sedación leve - Estado óptimo para recuperación',
+      recomendacion: 'Continuar monitorización rutinaria',
     },
     {
-      valor: 5,
-      descripcion: "Dormido, respuesta lenta al estímulo",
-      caracteristicas:
-        "Sueño profundo, respuesta lenta o perezosa a estímulos físicos o verbales",
+      id: 5,
+      valor: 'inquieto',
+      texto: 'Inquieto y difícil de calmar',
+      descripcion: 'Paciente despierto pero agitado',
+      puntaje: 4,
+      icono: '😟',
+      color: 'bg-blue-100 border-blue-300 text-blue-800',
+      interpretacion: 'Ansiedad o dolor - Requiere intervención',
+      recomendacion: 'Evaluar dolor, considerar analgesia o sedación suave',
     },
     {
-      valor: 6,
-      descripcion: "Sin respuesta al estímulo",
-      caracteristicas:
-        "No responde a estímulos dolorosos o verbales, ausencia de reflejos protectores",
+      id: 6,
+      valor: 'agitado',
+      texto: 'Agitado',
+      descripcion: 'Paciente muy agitado, requiere contención',
+      puntaje: 5,
+      icono: '😠',
+      color: 'bg-purple-100 border-purple-300 text-purple-800',
+      interpretacion: 'Agitación severa - Riesgo de autoextubación o lesión',
+      recomendacion: 'Intervención inmediata, considerar sedación',
     },
-  ];
+  ]
 
-  const handleNivelChange = (valor) => {
-    setNivelSedacion(valor);
-  };
+  const seleccionarNivel = (nivel) => {
+    setNivelSedacion(nivel)
+    setMostrarResultado(true)
+  }
 
-  const resetEvaluacion = () => {
-    setNivelSedacion(null);
-    setObservaciones("");
-  };
+  const reiniciarEscala = () => {
+    setNivelSedacion(null)
+    setMostrarResultado(false)
+  }
 
-  const getInterpretacion = () => {
-    if (nivelSedacion === null) return null;
-
-    const interpretaciones = {
-      1: {
-        tipo: "agitación",
-        color: "bg-red-100 border-red-300 text-red-800",
-        mensaje:
-          "Paciente agitado - Considerar evaluación de causas y medidas de contención",
-        recomendaciones: [
-          "Evaluar causas de agitación (dolor, hipoxia, retención urinaria)",
-          "Considerar medidas de contención no farmacológicas",
-          "Monitorizar signos vitales frecuentemente",
-          "Valorar necesidad de sedación",
-        ],
-      },
-      2: {
-        tipo: "ideal",
-        color: "bg-green-100 border-green-300 text-green-800",
-        mensaje:
-          "Nivel de sedación adecuado - Estado óptimo para procedimientos",
-        recomendaciones: [
-          "Mantener monitorización regular",
-          "Continuar con manejo actual",
-          "Documentar estado cada hora",
-          "Observar cambios en el nivel de conciencia",
-        ],
-      },
-      3: {
-        tipo: "sedacion-leve",
-        color: "bg-blue-100 border-blue-300 text-blue-800",
-        mensaje: "Sedación leve - Adecuado para procedimientos menores",
-        recomendaciones: [
-          "Monitorizar vía aérea y respiración",
-          "Verificar respuesta a estímulos verbales",
-          "Documentar cada 30 minutos",
-          "Observar profundización de sedación",
-        ],
-      },
-      4: {
-        tipo: "sedacion-moderada",
-        color: "bg-indigo-100 border-indigo-300 text-indigo-800",
-        mensaje: "Sedación moderada - Vigilar función respiratoria",
-        recomendaciones: [
-          "Monitorización continua de saturación",
-          "Verificar permeabilidad de vía aérea",
-          "Documentar cada 15-30 minutos",
-          "Preparar equipo de emergencia",
-        ],
-      },
-      5: {
-        tipo: "sedacion-profunda",
-        color: "bg-purple-100 border-purple-300 text-purple-800",
-        mensaje: "Sedación profunda - Riesgo aumentado de complicaciones",
-        recomendaciones: [
-          "Monitorización estrecha de signos vitales",
-          "Evaluación constante de vía aérea",
-          "Documentar cada 15 minutos",
-          "Presencia de personal entrenado en manejo de vía aérea",
-        ],
-      },
-      6: {
-        tipo: "coma",
-        color: "bg-gray-100 border-gray-300 text-gray-800",
-        mensaje: "Estado comatoso - Emergencia médica",
-        recomendaciones: [
-          "Activar protocolo de emergencia",
-          "Manejo avanzado de vía aérea",
-          "Monitorización invasiva",
-          "Evaluación neurológica inmediata",
-        ],
-      },
-    };
-
-    return interpretaciones[nivelSedacion];
-  };
-
-  const interpretacion = getInterpretacion();
-  const nivelSeleccionado = escalaRamsay.find(
-    (nivel) => nivel.valor === nivelSedacion
-  );
+  const getNivelSeleccionado = () => {
+    return nivelesSedacion.find((nivel) => nivel.valor === nivelSedacion?.valor)
+  }
 
   return (
-    <div className="max-w-4xl mx-auto p-4 bg-transparent min-h-screen">
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            Escala de Sedación
-          </h1>
-          <p className="text-gray-600">
-            Evaluación del nivel de conciencia y sedación
-          </p>
-        </div>
+    <div class='max-w-4xl mx-auto p-6 bg-transparent rounded-lg shadow-lg'>
+      {/* Encabezado */}
+      <div class='text-center mb-8'>
+        <h1 class='text-3xl font-bold text-gray-800 mb-2'>
+          ESCALA DE SEDACIÓN
+        </h1>
+        <p class='text-gray-600 font-bold'>
+          Evaluación del nivel de sedación del paciente
+        </p>
+      </div>
 
-        {/* Escala de Ramsay */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-600 mb-4">
-            Seleccione el Nivel de Sedación
-          </h2>
-          <div className="space-y-3">
-            {escalaRamsay.map((nivel) => (
-              <div
-                key={nivel.valor}
-                className={`p-4 rounded-lg border-2 border-gray-500 cursor-pointer transition-all duration-200 ${
-                  nivelSedacion === nivel.valor
-                    ? "border-blue-500 bg-blue-50 transform scale-[1.02] shadow-md"
-                    : "border-gray-200 hover:border-blue-300 hover:bg-gray-50"
-                }`}
-                onClick={() => handleNivelChange(nivel.valor)}
-              >
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="font-bold text-blue-700 text-lg">
-                      {nivel.valor}
+      {/* Instrucciones */}
+      <div class='bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6'>
+        <div class='flex items-center'>
+          <svg
+            class='w-5 h-5 text-blue-600 mr-2'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+            />
+          </svg>
+          <span class='text-blue-800 font-medium'>
+            Seleccione una opción que mejor describa el estado del paciente
+          </span>
+        </div>
+      </div>
+
+      {/* Opciones de Sedación */}
+      <div class='space-y-4 mb-8'>
+        {nivelesSedacion.map((nivel) => (
+          <button
+            key={nivel.id}
+            onClick={() => seleccionarNivel(nivel)}
+            class={`w-full p-4 rounded-lg border-2 text-left transition-all duration-200 hover:scale-[1.02] ${
+              nivelSedacion?.valor === nivel.valor
+                ? `${nivel.color} border-2 shadow-lg transform scale-[1.02]`
+                : 'border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50'
+            }`}
+          >
+            <div class='flex items-start'>
+              <span class='text-2xl mr-4 shrink-0'>{nivel.icono}</span>
+              <div class='flex-1'>
+                <div class='flex justify-between items-start mb-1'>
+                  <span
+                    class={`text-lg font-semibold ${
+                      nivelSedacion?.valor === nivel.valor
+                        ? nivel.color.split(' ')[2]
+                        : 'text-gray-800'
+                    }`}
+                  >
+                    {nivel.texto}
+                  </span>
+                  {nivelSedacion?.valor === nivel.valor && (
+                    <span class='px-3 py-1 bg-blue-600 text-white text-sm rounded-full font-medium'>
+                      Seleccionado
                     </span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="font-semibold text-gray-800 text-lg">
-                      {nivel.descripcion}
-                    </div>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {nivel.caracteristicas}
-                    </p>
-                  </div>
-                  {nivelSedacion === nivel.valor && (
-                    <div className="ml-4">
-                      <Check className="text-green-600" />
-                    </div>
                   )}
                 </div>
+                <p class='text-gray-600'>{nivel.descripcion}</p>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </button>
+        ))}
+      </div>
 
-        {/* Resultado e Interpretación */}
-        {nivelSedacion !== null && (
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+      {/* Resultado */}
+      {mostrarResultado && nivelSedacion && (
+        <div class='bg-linear-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200 mb-6 transition-all duration-500'>
+          <div class='text-center'>
+            <h3 class='text-2xl font-bold text-gray-800 mb-6'>
               Resultado de la Evaluación
-            </h2>
+            </h3>
 
-            <div className="space-y-6">
-              {/* Nivel seleccionado */}
-              <div className="text-center p-4 bg-gray-50 rounded-lg">
-                <span className="text-sm text-gray-600 block mb-2">
-                  Nivel de Sedación Seleccionado
-                </span>
-                <div className="text-5xl font-bold text-gray-800 my-2">
-                  {nivelSedacion}
+            <div class='grid grid-cols-1 md:grid-cols-3 gap-6 mb-6'>
+              <div class='text-center'>
+                <div class='text-4xl font-bold text-blue-600 mb-2'>
+                  {getNivelSeleccionado()?.puntaje}
                 </div>
-                <span className="text-xl font-semibold text-gray-700">
-                  {nivelSeleccionado?.descripcion}
-                </span>
+                <div class='text-gray-600'>Puntaje</div>
               </div>
 
-              {/* Interpretación */}
-              {interpretacion && (
+              <div class='text-center'>
                 <div
-                  className={`p-4 rounded-lg border-2 ${interpretacion.color}`}
+                  class={`text-xl font-semibold mb-2 px-4 py-2 rounded-full ${
+                    getNivelSeleccionado()?.color
+                  }`}
                 >
-                  <div className="font-semibold text-lg mb-2">
-                    Interpretación Clínica:
-                  </div>
-                  <p className="text-lg">{interpretacion.mensaje}</p>
+                  {getNivelSeleccionado()?.texto}
                 </div>
-              )}
-
-              {/* Observaciones */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Observaciones Adicionales
-                </label>
-                <textarea
-                  value={observaciones}
-                  onChange={(e) => setObservaciones(e.target.value)}
-                  rows="3"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Registre observaciones relevantes sobre el estado del paciente..."
-                />
+                <div class='text-gray-600'>Nivel de Sedación</div>
               </div>
 
-              {/* Recomendaciones */}
-              {interpretacion && (
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-yellow-800 mb-3 text-lg">
-                    Recomendaciones:
-                  </h3>
-                  <ul className="text-yellow-700 list-disc list-inside space-y-2">
-                    {interpretacion.recomendaciones.map(
-                      (recomendacion, index) => (
-                        <li key={index} className="text-sm">
-                          {recomendacion}
-                        </li>
-                      )
-                    )}
-                  </ul>
+              <div class='text-center'>
+                <div class='text-lg font-semibold text-gray-700 mb-2'>
+                  {getNivelSeleccionado()?.puntaje <= 1
+                    ? 'Profunda'
+                    : getNivelSeleccionado()?.puntaje <= 3
+                    ? 'Moderada'
+                    : 'Leve/Agitación'}
                 </div>
-              )}
+                <div class='text-gray-600'>Categoría</div>
+              </div>
+            </div>
 
-              {/* Resumen para documentación */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-700 mb-2">
-                  Resumen para Documentación:
-                </h3>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <p>
-                    <strong>Fecha/Hora:</strong> {new Date().toLocaleString()}
+            {/* Interpretación y Recomendaciones */}
+            <div class='bg-white rounded-lg p-6 border shadow-sm'>
+              <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                <div>
+                  <h4 class='font-semibold text-gray-800 mb-3 flex items-center'>
+                    <svg
+                      class='w-5 h-5 mr-2 text-blue-600'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+                      />
+                    </svg>
+                    Interpretación
+                  </h4>
+                  <p class='text-gray-600 text-sm leading-relaxed'>
+                    {getNivelSeleccionado()?.interpretacion}
                   </p>
-                  <p>
-                    <strong>Score:</strong> Nivel {nivelSedacion} -{" "}
-                    {nivelSeleccionado?.descripcion}
+                </div>
+
+                <div>
+                  <h4 class='font-semibold text-gray-800 mb-3 flex items-center'>
+                    <svg
+                      class='w-5 h-5 mr-2 text-green-600'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                      />
+                    </svg>
+                    Recomendación
+                  </h4>
+                  <p class='text-gray-600 text-sm leading-relaxed'>
+                    {getNivelSeleccionado()?.recomendacion}
                   </p>
-                  <p>
-                    <strong>Observaciones:</strong> {observaciones || "Ninguna"}
-                  </p>
+                </div>
+              </div>
+
+              {/* Escala Visual */}
+              <div class='mt-6'>
+                <div class='flex justify-between text-xs text-gray-500 mb-2'>
+                  <span>Sedación Profunda</span>
+                  <span>Óptima</span>
+                  <span>Agitación</span>
+                </div>
+                <div class='h-3 bg-linear-to-r from-red-400 via-yellow-400 to-purple-500 rounded-full relative'>
+                  <div
+                    class='absolute top-0 w-4 h-4 bg-white border-2 border-gray-800 rounded-full transform -translate-y-0.5 -translate-x-2'
+                    style={{
+                      left: `${(getNivelSeleccionado()?.puntaje / 5) * 100}%`,
+                    }}
+                  ></div>
+                </div>
+                <div class='flex justify-between text-xs text-gray-500 mt-1'>
+                  <span>0-1</span>
+                  <span>2-3</span>
+                  <span>4-5</span>
                 </div>
               </div>
             </div>
           </div>
-        )}
-
-        {/* Botones de Acción */}
-        <div className="flex justify-center space-x-4 pt-6">
-          <button
-            onClick={resetEvaluacion}
-            className="px-6 py-3 bg-gray-600 text-white rounded-lg cursor-pointer font-medium hover:bg-gray-700 transition-colors duration-200 shadow-sm"
-          >
-            Nueva Evaluación
-          </button>
-          {nivelSedacion !== null && (
-            <button
-              onClick={() => window.print()}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium cursor-pointer hover:bg-blue-700 transition-colors duration-200 shadow-sm"
-            >
-              Imprimir Reporte
-            </button>
-          )}
         </div>
+      )}
 
-        {/* Footer informativo */}
-        <footer className="text-center text-gray-500 text-sm mt-8">
-          <p>
-            <strong>Escala de Sedación</strong> - Evaluación del nivel de
-            sedación
-          </p>
-          <p className="text-xs mt-1">
-            Niveles 1-2: Sedación insuficiente | Nivel 3: Sedación leve |
-            Niveles 4-5: Sedación moderada-profunda | Nivel 6: Coma
-          </p>
-        </footer>
+      {/* Botones de Acción */}
+      <div class='flex flex-col sm:flex-row justify-center gap-4'>
+        <button
+          onClick={reiniciarEscala}
+          class='px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium flex items-center justify-center'
+        >
+          <svg
+            class='w-5 h-5 mr-2'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15'
+            />
+          </svg>
+          Nueva Evaluación
+        </button>
+
+        {mostrarResultado && (
+          <button
+            onClick={() => window.print()}
+            class='px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center'
+          >
+            <svg
+              class='w-5 h-5 mr-2'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z'
+              />
+            </svg>
+            Imprimir Reporte
+          </button>
+        )}
+      </div>
+
+      {/* Información Adicional */}
+      <div class='mt-8 bg-gray-50 rounded-lg p-6 border border-gray-200'>
+        <h3 class='text-lg font-semibold text-gray-800 mb-4 flex items-center'>
+          <InfoCircle />
+          Acerca de la Escala de Sedación
+        </h3>
+
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600'>
+          <div>
+            <h4 class='font-medium text-gray-700 mb-2'>Niveles de Sedación:</h4>
+            <ul class='space-y-2'>
+              <li class='flex items-start'>
+                <span class='text-red-500 mr-2'>•</span>
+                <span>
+                  <strong>0-1:</strong> Sedación profunda - Riesgo respiratorio
+                </span>
+              </li>
+              <li class='flex items-start'>
+                <span class='text-yellow-500 mr-2'>•</span>
+                <span>
+                  <strong>2-3:</strong> Sedación moderada - Ideal para
+                  procedimientos
+                </span>
+              </li>
+              <li class='flex items-start'>
+                <span class='text-purple-500 mr-2'>•</span>
+                <span>
+                  <strong>4-5:</strong> Sedación leve/Agitación - Requiere
+                  intervención
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class='font-medium text-gray-700 mb-2'>Consideraciones:</h4>
+            <ul class='space-y-2'>
+              <li class='flex items-start'>
+                <span class='text-blue-500 mr-2'>•</span>
+                <span>Evaluar cada 2-4 horas según condición</span>
+              </li>
+              <li class='flex items-start'>
+                <span class='text-blue-500 mr-2'>•</span>
+                <span>Documentar cambios en el nivel de sedación</span>
+              </li>
+              <li class='flex items-start'>
+                <span class='text-blue-500 mr-2'>•</span>
+                <span>Considerar contexto clínico completo</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default EscalaSedacion;
+export default EscalaSedacion
