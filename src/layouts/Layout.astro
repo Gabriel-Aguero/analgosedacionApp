@@ -1,4 +1,5 @@
 ---
+import FlechaScrollTop from '../components/FlechaScrollTop'
 import Footer from '../components/Footer.astro'
 import Sidebar from '../components/Sidebar'
 import '../styles/global.css'
@@ -20,6 +21,7 @@ import '../styles/global.css'
         <slot />
       </main>
     </div>
+    <FlechaScrollTop client:load />
     <Footer />
   </body>
 </html>

@@ -1,7 +1,8 @@
 ---
-import { Linkedin } from '../icons/Linkedin'
 import { Email } from '../icons/Email'
-// src/components/Footer.astro
+import { Github } from '../icons/Github'
+import { Linkedin } from '../icons/Linkedin'
+import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-preact'
 ---
 
 <footer class='bg-gray-800 text-white mt-auto'>
@@ -17,12 +18,22 @@ import { Email } from '../icons/Email'
           pacientes críticos utilizando escalas validadas como BPS, RASS y
           CAM-ICU.
         </p>
-        <div class='flex space-x-4'>
+        <div class='flex gap-4 items-center'>
           <a
             href='https://www.linkedin.com/in/gabrielhaguero/'
+            target='_blank'
+            rel='noreferrer'
             class='text-gray-400 hover:text-white transition-colors'
           >
             <Linkedin />
+          </a>
+          <a
+            href='https://github.com/Gabriel-Aguero'
+            target='_blank'
+            rel='noreferrer'
+            class='text-gray-400 hover:text-white transition-colors'
+          >
+            <Github />
           </a>
         </div>
       </div>
@@ -71,7 +82,7 @@ import { Email } from '../icons/Email'
         <div class='space-y-2 text-sm text-gray-300'>
           <div class='flex items-center gap-2'>
             <Email />
-            <span>investigacion@hospital.edu</span>
+            <span>gabriel.aguero.developer@gmail.com</span>
           </div>
         </div>
       </div>
@@ -110,8 +121,8 @@ import { Email } from '../icons/Email'
     <!-- Información Adicional -->
     <div class='mt-6 text-center'>
       <p class='text-gray-400 text-xs'>
-        Este sistema está destinado exclusivamente para uso médico profesional.
-        La información proporcionada no sustituye el criterio clínico.
+        Este sistema está destinado exclusivamente a modo de informativo. La
+        información proporcionada no sustituye el criterio clínico.
       </p>
     </div>
   </div>

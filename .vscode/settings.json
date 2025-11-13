@@ -18,5 +18,5 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["consolabilidad", "descripcion", "puntajes"]
+  "cSpell.words": ["consolabilidad", "descripcion", "puntajes", "Sedacion"]
 }

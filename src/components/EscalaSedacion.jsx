@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks'
+import { Check } from '../icons/Check'
 
 const EscalaSedacion = () => {
   const [nivelSedacion, setNivelSedacion] = useState(null)
@@ -57,7 +58,7 @@ const EscalaSedacion = () => {
 
     const interpretaciones = {
       1: {
-        tipo: 'agitacion',
+        tipo: 'agitación',
         color: 'bg-red-100 border-red-300 text-red-800',
         mensaje:
           'Paciente agitado - Considerar evaluación de causas y medidas de contención',
@@ -164,7 +165,7 @@ const EscalaSedacion = () => {
                 onClick={() => handleNivelChange(nivel.valor)}
               >
                 <div className='flex items-start'>
-                  <div className='flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4'>
+                  <div className='w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4'>
                     <span className='font-bold text-blue-700 text-lg'>
                       {nivel.valor}
                     </span>
@@ -178,20 +179,8 @@ const EscalaSedacion = () => {
                     </p>
                   </div>
                   {nivelSedacion === nivel.valor && (
-                    <div className='flex-shrink-0 ml-4'>
-                      <svg
-                        className='w-6 h-6 text-green-500'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M5 13l4 4L19 7'
-                        />
-                      </svg>
+                    <div className='ml-4'>
+                      <Check className='text-green-600' />
                     </div>
                   )}
                 </div>

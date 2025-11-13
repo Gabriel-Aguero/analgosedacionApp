@@ -65,12 +65,12 @@ import { Brain } from '../icons/Brain.jsx'
           <li>• Combina agitación y sedación</li>
           <li>• Validada en UCI</li>
         </ul>
-        <button
-          class='inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed'
-          disabled
+        <a
+          href='/sedacion'
+          class='inline-block px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors'
         >
-          Próximamente
-        </button>
+          Usar Escala
+        </a>
       </div>
 
       <!-- Tarjeta Delirium -->
@@ -94,23 +94,23 @@ import { Brain } from '../icons/Brain.jsx'
           <li>• Evaluación rápida</li>
           <li>• Alta sensibilidad</li>
         </ul>
-        <button
-          class='inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed'
-          disabled
+        <a
+          href='/delirium'
+          class='inline-block px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors'
         >
-          Próximamente
-        </button>
+          Usar Escala
+        </a>
       </div>
 
       <!-- Tarjeta Abstinencia -->
       <div
-        class='bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500'
+        class='bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500'
       >
         <div class='flex items-center mb-4'>
           <div
-            class='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center'
+            class='w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center'
           >
-            <span class='text-purple-600 font-bold'>AB</span>
+            <span class='text-orange-600 font-bold'>AB</span>
           </div>
           <h3 class='text-xl font-semibold ml-4'>Escala de Abstinencia</h3>
         </div>
@@ -123,12 +123,12 @@ import { Brain } from '../icons/Brain.jsx'
           <li>• Evaluación rápida</li>
           <li>• Alta sensibilidad</li>
         </ul>
-        <button
-          class='inline-block px-4 py-2 bg-gray-400 text-white rounded-md cursor-not-allowed'
-          disabled
+        <a
+          href='/abstinencia'
+          class='inline-block px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors'
         >
           Próximamente
-        </button>
+        </a>
       </div>
     </div>
   </section>

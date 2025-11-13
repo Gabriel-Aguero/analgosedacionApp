@@ -1,14 +1,61 @@
-# Astro Starter Kit: Basics
+# 📋 Sistema de Escalas de Sedoanalgesia
 
-```sh
-npm create astro@latest -- --template basics
-```
+### SedoAnalgesia App
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![image](/public/analgosedacion.webp)
 
-## 🚀 Project Structure
+## 📄 Licencia
 
-Inside of your Astro project, you'll see the following folders and files:
+### 🚨​ Este proyecto está bajo la Licencia MIT
+
+## Basado en un proyecto de Investigación.
+
+`<Link>` : <https://medicinainfantil.org.ar/index.php/2024-volumen-xxxi/numero-4>
+
+### Sistema especializado para la evaluación y calculo de score de Escalas de Sedoanalgesia.
+
+#### 🚀 Características
+
+#### 📊 Escalas Implementadas
+
+- Escalado de Dolor - Evaluación del dolor en pacientes
+  - Escala de FLACC
+  - Escala de OPS
+  - Escala de Numérica
+  - Escala de Caritas
+- Escala de Sedación - Evaluación del nivel de sedación
+- Cornell Assessment of Pediatric Delirium (CAPD) - Detección de delirium en población pediátrica
+
+  - Versión para niños mayores (6-18 años)
+  - Versión para lactantes y niños (0-2 años)
+
+- Escala de Abstinencia - Evaluación de síndrome de abstinencia
+
+### Escala de Dolor - Caritas
+
+![image](/public/escala-caritas.webp)
+
+## 🎯 Funcionalidades
+
+- Evaluación interactiva en tiempo real
+- Cálculo automático de puntuaciones
+- Interpretación clínica inmediata
+- Recomendaciones basadas en resultados
+- Documentación integrada para registros médicos
+- Diseño responsive para móviles y escritorio
+- Interfaz intuitiva y accesible
+
+## 🛠️ Tecnologías Utilizadas
+
+- Frontend: Preact + Astro
+
+- Estilos: Tailwind CSS
+
+- Icons: Tabler Icons + components personalizados
+
+- Deployment: Astro Build
+
+## 🚀 Estructura del Proyecto
 
 ```text
 /
@@ -26,10 +73,6 @@ Inside of your Astro project, you'll see the following folders and files:
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
@@ -41,6 +84,28 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+# 🤝 Contribución
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Las contribuciones son bienvenidas. Por favor:
+
+-Fork el proyecto
+
+- Crea una rama para tu feature (git checkout -b feature/AmazingFeature)
+
+- Commit tus cambios (git commit -m 'Add some AmazingFeature')
+
+- Push a la rama (git push origin feature/AmazingFeature)
+
+- Abre una Pull Request
+
+# No te olvides de dejar tu ⭐️
+
+# Creado con ❤️ por Gabriel Aguero
+
+## 📞 Contacto
+
+- Gabriel Agüero - Fullstack Developer
+
+- 📧 gabriel.aguero.developer@email.com
+
+- 🔗 LinkedIn - https://www.linkedin.com/in/gabrielhaguero/
