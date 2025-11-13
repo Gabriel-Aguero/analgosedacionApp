@@ -6,18 +6,21 @@ const About = () => {
     {
       nombre: 'Andrea Cazón',
       cargo: 'Investigador Principal',
+      descripcion: 'Investigadora Principal',
       imagen: '/andrea.webp',
       url: 'https://www.linkedin.com/in/andrea-cazon-58666693/',
     },
     {
       nombre: 'Yésica Montenegro',
       cargo: 'Investigadora',
+      descripcion: 'Investigadora Principal',
       imagen: '/yesi.webp',
       url: '',
     },
     {
       nombre: 'Gabriel Agüero',
       cargo: 'Programador Web',
+      descripcion: 'Desarrollador',
       imagen: '/gaby.webp',
       url: 'https://www.linkedin.com/in/gabrielhaguero/',
     },
@@ -59,7 +62,7 @@ const About = () => {
                 {persona.nombre}
               </h3>
               <p className='text-gray-600 text-sm mb-2'>{persona.cargo}</p>
-              <p className='text-gray-500 text-xs'>Investigador Principal</p>
+              <p className='text-gray-500 text-xs'>{persona.descripcion}</p>
               <a
                 href={persona.url}
                 target='_blank'
