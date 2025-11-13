@@ -1,6 +1,5 @@
 ---
 import { Check } from '../icons/Check'
-import { Chevron } from '../icons/Chevron'
 import Layout from '../layouts/Layout.astro'
 ---
 
@@ -76,12 +75,23 @@ import Layout from '../layouts/Layout.astro'
               </svg>
               Puntuación: 0-10
             </span>
-            <div
-              class='text-purple-600 cursor-pointer hover:text-purple-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
+            <span
+              class='text-purple-600 hover:text-purple-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
             >
               Usar Escala
-              <Chevron />
-            </div>
+              <svg
+                class='w-4 h-4 ml-1'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M9 5l7 7-7 7'></path>
+              </svg>
+            </span>
           </div>
         </div>
       </a>
@@ -143,12 +153,23 @@ import Layout from '../layouts/Layout.astro'
               </svg>
               Validada en UCI
             </span>
-            <div
-              class='text-blue-600 cursor-pointer hover:text-blue-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
+            <span
+              class='text-blue-600 hover:text-blue-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
             >
               Usar Escala
-              <Chevron />
-            </div>
+              <svg
+                class='w-4 h-4 ml-1'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M9 5l7 7-7 7'></path>
+              </svg>
+            </span>
           </div>
         </div>
       </a>
@@ -210,12 +231,23 @@ import Layout from '../layouts/Layout.astro'
               </svg>
               Rango: 0-10
             </span>
-            <div
-              class='text-green-600 cursor-pointer hover:text-green-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
+            <span
+              class='text-green-600 hover:text-green-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
             >
               Usar Escala
-              <Chevron />
-            </div>
+              <svg
+                class='w-4 h-4 ml-1'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M9 5l7 7-7 7'></path>
+              </svg>
+            </span>
           </div>
         </div>
       </a>
@@ -280,12 +312,23 @@ import Layout from '../layouts/Layout.astro'
               </svg>
               6 niveles
             </span>
-            <div
-              class='text-orange-600 cursor-pointer hover:text-orange-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
+            <span
+              class='text-orange-600 hover:text-orange-800 font-medium flex items-center group-hover:translate-x-1 transition-transform'
             >
               Usar Escala
-              <Chevron />
-            </div>
+              <svg
+                class='w-4 h-4 ml-1'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M9 5l7 7-7 7'></path>
+              </svg>
+            </span>
           </div>
         </div>
       </a>
@@ -346,25 +389,3 @@ import Layout from '../layouts/Layout.astro'
     </div>
   </div>
 </Layout>
-
-<script>
-  function navigateToScale(scaleType) {
-    // Aquí puedes implementar la navegación a la página específica de cada escala
-    switch (scaleType) {
-      case 'flacc':
-        window.location.href = '/escalas/flacc'
-        break
-      case 'ops':
-        window.location.href = '/escalas/ops'
-        break
-      case 'numerica':
-        window.location.href = '/escalas/numerica'
-        break
-      case 'caritas':
-        window.location.href = '/escalas/caritas'
-        break
-      default:
-        console.log('Escala no reconocida')
-    }
-  }
-</script>
