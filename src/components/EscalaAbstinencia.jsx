@@ -88,11 +88,13 @@ const EscalaAbstinencia = () => {
         <h1 class='text-3xl font-bold text-gray-800 mb-2'>
           Escala de Abstinencia
         </h1>
-        <p class='text-gray-600'>Evaluación de síntomas de abstinencia</p>
+        <p class='text-gray-600 font-bold'>
+          Evaluación de síntomas de abstinencia
+        </p>
       </div>
 
       {/* Resumen */}
-      <div class='bg-gray-50 border border-gray-500 p-6 rounded-lg p-4 mb-6'>
+      <div class='bg-gray-50 border border-gray-500 p-6 rounded-lg mb-6'>
         <div class='flex justify-between items-center'>
           <div>
             <span class='text-sm text-gray-600'>Síntomas seleccionados:</span>
