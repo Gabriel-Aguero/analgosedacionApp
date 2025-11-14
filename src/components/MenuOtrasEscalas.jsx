@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Iconos (puedes reemplazar estos con tus componentes reales)
 const RassIcon = () => <span className='font-bold'>R</span>
 
