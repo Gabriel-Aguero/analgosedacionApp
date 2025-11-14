@@ -12,7 +12,7 @@ const EscalaSedacion = () => {
       valor: 'no-responde',
       texto: 'No responde',
       descripcion: 'Sin respuesta a estímulos verbales o físicos',
-      puntaje: 0,
+      puntaje: -3,
       icono: '😴',
       color: 'bg-red-100 border-red-300 text-red-800',
       interpretacion: 'Sedación profunda - Riesgo de depresión respiratoria',
@@ -24,7 +24,7 @@ const EscalaSedacion = () => {
       valor: 'responde-nociceptivos',
       texto: 'Responde a estímulos nociceptivos',
       descripcion: 'Solo responde a estímulos dolorosos',
-      puntaje: 1,
+      puntaje: -2,
       icono: '😵',
       color: 'bg-orange-100 border-orange-300 text-orange-800',
       interpretacion: 'Sedación profunda - Respuesta solo al dolor',
@@ -35,7 +35,7 @@ const EscalaSedacion = () => {
       valor: 'responde-tacto-voz',
       texto: 'Responde al tocarlo o a la voz',
       descripcion: 'Responde a estímulos táctiles o verbales',
-      puntaje: 2,
+      puntaje: -1,
       icono: '😌',
       color: 'bg-yellow-100 border-yellow-300 text-yellow-800',
       interpretacion: 'Sedación moderada - Respuesta adecuada a estímulos',
@@ -46,7 +46,7 @@ const EscalaSedacion = () => {
       valor: 'despierto-calmo',
       texto: 'Despierto o calmo',
       descripcion: 'Paciente despierto y tranquilo',
-      puntaje: 3,
+      puntaje: 0,
       icono: '😊',
       color: 'bg-green-100 border-green-300 text-green-800',
       interpretacion: 'Sedación leve - Estado óptimo para recuperación',
@@ -57,7 +57,7 @@ const EscalaSedacion = () => {
       valor: 'inquieto',
       texto: 'Inquieto y difícil de calmar',
       descripcion: 'Paciente despierto pero agitado',
-      puntaje: 4,
+      puntaje: 1,
       icono: '😟',
       color: 'bg-blue-100 border-blue-300 text-blue-800',
       interpretacion: 'Ansiedad o dolor - Requiere intervención',
@@ -68,7 +68,7 @@ const EscalaSedacion = () => {
       valor: 'agitado',
       texto: 'Agitado',
       descripcion: 'Paciente muy agitado, requiere contención',
-      puntaje: 5,
+      puntaje: 2,
       icono: '😠',
       color: 'bg-purple-100 border-purple-300 text-purple-800',
       interpretacion: 'Agitación severa - Riesgo de autoextubación o lesión',
@@ -334,20 +334,20 @@ const EscalaSedacion = () => {
               <li class='flex items-start'>
                 <span class='text-red-500 mr-2'>•</span>
                 <span>
-                  <strong>0-1:</strong> Sedación profunda - Riesgo respiratorio
+                  <strong>-3:</strong> Sedación profunda - Riesgo respiratorio
                 </span>
               </li>
               <li class='flex items-start'>
                 <span class='text-yellow-500 mr-2'>•</span>
                 <span>
-                  <strong>2-3:</strong> Sedación moderada - Ideal para
+                  <strong>-1 -2:</strong> Sedación moderada - Ideal para
                   procedimientos
                 </span>
               </li>
               <li class='flex items-start'>
                 <span class='text-purple-500 mr-2'>•</span>
                 <span>
-                  <strong>4-5:</strong> Sedación leve/Agitación - Requiere
+                  <strong>0 - 2:</strong> Sedación leve/Agitación - Requiere
                   intervención
                 </span>
               </li>
