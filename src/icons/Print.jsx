@@ -1,4 +1,4 @@
-export const Refresh = ({
+export const Print = ({
   size = 24,
   className = '',
   stroke = 'currentColor',

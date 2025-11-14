@@ -6,6 +6,7 @@ import { FaceDolor } from '../icons/FaceDolor'
 import { IconDelirium } from '../icons/IconDelirium'
 import { IconAgitacion } from '../icons/IconAgitacion'
 import { Abstinencia } from '../icons/Abstinencia'
+import { Atom } from '../icons/Atom'
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false)
@@ -110,6 +111,14 @@ const Sidebar = () => {
             <Abstinencia />
 
             <span>Escala de Abstinencia</span>
+          </a>
+          <a
+            href='/otras-escalas'
+            className='p-2 rounded hover:bg-blue-600 flex items-center gap-2 border border-slate-400 mb-4'
+          >
+            <Atom />
+
+            <span>Otras Escalas</span>
           </a>
         </nav>
       </aside>

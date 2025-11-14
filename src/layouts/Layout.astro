@@ -1,25 +1,57 @@
 ---
-import FlechaScrollTop from "../components/FlechaScrollTop";
-import Footer from "../components/Footer.astro";
-import Sidebar from "../components/Sidebar";
-import "../styles/global.css";
+import FlechaScrollTop from '../components/FlechaScrollTop'
+import Footer from '../components/Footer.astro'
+import Sidebar from '../components/Sidebar'
+import '../styles/global.css'
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang='es'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-
-    <meta name="generator" content={Astro.generator} />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
     <title>Escalas de SedoAnalegesia</title>
+    <meta
+      name='description'
+      content='Aplicación para el calculo de escalas de Analgosedación'
+    />
+    <meta
+      name='keywords'
+      content='Escalas de Analgosedación, Escala de Sedoanalegesia, Escala de Sedación, Escala de dolor, 
+    Escala de abstinencia, Escala de sedación, Escala de delirium'
+    />
+
+    <meta name='theme-color' content='#1A202C' />
+    <meta name='author' content='Gabriel Aguero' />
+    <link rel='icon' type='image/ico' href='/favicon.ico' />
+    <meta name='generator' content={Astro.generator} />
+    <link rel='canonical' href='https://analgosedacion-app.vercel.app/' />
+
+    <!-- Open Graph -->
+    <meta property='og:url' content='https://analgosedacion-app.vercel.app/' />
+    <meta property='og:type' content='website' />
+    <meta property='og:title' content='Escalas de Analgosedación' />
+    <meta
+      property='og:description'
+      content='Aplicación para el calculo de escalas de Analgosedación'
+    />
+    <meta property='og:image' content='/portada.jpg' />
+    <meta property='og:locale' content='es_ES' />
+
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='@gabyaguero' />
+    <meta name='twitter:creator' content='@gabyaguero' />
+    <meta name='twitter:title' content='Escalas de Analgosedación' />
+    <meta
+      name='twitter:description'
+      content='Aplicación para el calculo de escalas de Analgosedación'
+    />
   </head>
-  <body class="bg-white">
-    <div class="flex-col md:flex md:flex-row min-h-screen">
+  <body class='bg-white'>
+    <div class='flex-col md:flex md:flex-row min-h-screen'>
       <Sidebar client:load />
-      <main class="flex-1 p-8 z-20">
+      <main class='flex-1 p-8 z-20'>
         <slot />
       </main>
     </div>
