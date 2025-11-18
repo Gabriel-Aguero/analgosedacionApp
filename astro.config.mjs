@@ -26,7 +26,7 @@ export default defineConfig({
         name: "Analgosedación",
         short_name: "Analgosedación",
         description: "Escalas y herramientas para analgosedación en pediatría.",
-        start_url: "/",
+        start_url: "/index.astro",
         scope: "/",
         display: "standalone",
         background_color: "#ffffff",
