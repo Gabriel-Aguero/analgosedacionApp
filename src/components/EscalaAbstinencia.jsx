@@ -85,9 +85,7 @@ const EscalaAbstinencia = () => {
     <div class='max-w-4xl mx-auto p-6 bg-transparent rounded-lg shadow-lg'>
       {/* Encabezado */}
       <div class='text-center mb-8'>
-        <h1 class='text-3xl font-bold text-gray-800 mb-2'>
-          Escala de Abstinencia
-        </h1>
+        <h1 class='text-3xl font-bold text-gray-800 mb-2'>Escala de SOPHIA</h1>
         <p class='text-gray-600 font-bold'>
           Evaluación de síntomas de abstinencia
         </p>
@@ -367,11 +365,14 @@ const EscalaAbstinencia = () => {
       </div>
 
       {/* Resultado y Acciones */}
-      <div class='mt-8 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200'>
+      <div class='mt-8 bg-linear-to-r from-purple-50 to-blue-50 rounded-lg p-6 border border-purple-200'>
         <div class='text-center'>
-          <h3 class='text-xl font-semibold text-gray-800 mb-4'>
+          <h3 class='text-xl font-semibold text-gray-800'>
             Resultado de la Evaluación
           </h3>
+          <span class='text-md font-semibold text-purple-800 mb-8'>
+            Punto de corte ≥4
+          </span>
 
           <div class='grid grid-cols-1 md:grid-cols-3 gap-4 mb-6'>
             <div class='text-center'>
@@ -443,6 +444,7 @@ const EscalaAbstinencia = () => {
       <div class='mt-6 bg-blue-50 rounded-lg p-4 border border-blue-200'>
         <h4 class='font-semibold text-blue-800 mb-2'>Notas Importantes:</h4>
         <ul class='text-sm text-blue-700 space-y-1'>
+          <li>• Punto de corte 4</li>
           <li>• La escala evalúa 15 síntomas comunes de abstinencia</li>
           <li>• Cada síntoma presente contribuye al puntaje total</li>
           <li>
