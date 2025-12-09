@@ -1,13 +1,16 @@
 ---
+import IOSNotice from '../components/IOSNotice'
 import { Barbel } from '../icons/Barbel.jsx'
 import { Brain } from '../icons/Brain.jsx'
+import Swal from 'sweetalert2'
 ---
 
 <div class='max-w-6xl mx-auto'>
   <!-- Header -->
+  <IOSNotice client:load />
   <div class='text-center m-10'>
     <h1 class='text-xl md:text-3xl font-bold text-blue-800 mb-4 text-center'>
-      Sistema de Evaluación de Escala de Analgosedación
+      Sistema de Evaluación de Escalas de Analgosedación
     </h1>
   </div>
 
@@ -175,8 +178,8 @@ import { Brain } from '../icons/Brain.jsx'
           Estudio de validación original de la Behavioral Pain Scale en
           pacientes críticos no comunicativos.
         </p>
-        <a
-          href='#'
+        <button
+          data-alert='proximamente'
           class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver artículo completo
@@ -193,7 +196,7 @@ import { Brain } from '../icons/Brain.jsx'
               d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
-        </a>
+        </button>
       </div>
 
       <!-- Artículo 2 -->
@@ -231,8 +234,8 @@ import { Brain } from '../icons/Brain.jsx'
           Guías actualizadas para el manejo del dolor, agitación y delirium en
           pacientes adultos de la UCI.
         </p>
-        <a
-          href='#'
+        <button
+          data-alert='proximamente'
           class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver guías completas
@@ -249,7 +252,7 @@ import { Brain } from '../icons/Brain.jsx'
               d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
-        </a>
+        </button>
       </div>
 
       <!-- Artículo 3 -->
@@ -287,8 +290,8 @@ import { Brain } from '../icons/Brain.jsx'
           Implementación sistemática de herramientas de evaluación del dolor en
           unidades de cuidados intensivos.
         </p>
-        <a
-          href='#'
+        <button
+          data-alert='proximamente'
           class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver estudio completo
@@ -305,7 +308,7 @@ import { Brain } from '../icons/Brain.jsx'
               d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
-        </a>
+        </button>
       </div>
 
       <!-- Artículo 4 -->
@@ -343,8 +346,8 @@ import { Brain } from '../icons/Brain.jsx'
           Recomendaciones clínicas para el manejo del dolor, agitación y
           delirium en pacientes críticos.
         </p>
-        <a
-          href='#'
+        <button
+          data-alert='proximamente'
           class='text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center'
         >
           Ver protocolo
@@ -361,8 +364,28 @@ import { Brain } from '../icons/Brain.jsx'
               d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
             ></path>
           </svg>
-        </a>
+        </button>
       </div>
     </div>
   </section>
 </div>
+
+<script>
+  import Swal from 'sweetalert2'
+
+  // Seleccionamos todos los botones con data-alert
+  const botones = document.querySelectorAll('[data-alert="proximamente"]')
+
+  botones.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault() // Evita navegación en caso de usarse en <a>
+
+      Swal.fire({
+        title: 'Próximamente',
+        text: 'Este recurso estará disponible muy pronto.',
+        icon: 'info',
+        confirmButtonText: 'Entendido',
+      })
+    })
+  })
+</script>
