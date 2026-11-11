@@ -53,7 +53,7 @@
 
 - Icons: Tabler Icons + components personalizados
 
-- Deployment: Astro Build
+- Deployment: Cloudflare Workers (Static Assets) vía Wrangler
 
 ## 🚀 Estructura del Proyecto
 
@@ -81,6 +81,8 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run cf:dev`          | Build y servir con Wrangler (runtime Cloudflare) |
+| `npm run deploy`          | Build y deploy a Cloudflare Workers              |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 

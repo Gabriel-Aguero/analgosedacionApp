@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "cf:dev": "astro build && wrangler dev",
+    "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/preact": "^4.1.3",
@@ -17,5 +19,8 @@
     "preact": "^10.27.2",
     "sweetalert2": "^11.26.4",
     "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "wrangler": "^4.160.0"
   }
 }

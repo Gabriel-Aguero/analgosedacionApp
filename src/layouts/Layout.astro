@@ -4,6 +4,10 @@ import Footer from '../components/Footer.astro'
 import IOSNotice from '../components/IOSNotice'
 import Sidebar from '../components/Sidebar'
 import '../styles/global.css'
+
+const canonicalPath = Astro.url.pathname.replace(/(index)?\.html$/, '')
+const canonicalURL = new URL(canonicalPath, Astro.site)
+const ogImage = new URL('/portada.jpg', Astro.site)
 ---
 
 <!doctype html>
@@ -11,7 +15,7 @@ import '../styles/global.css'
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
-    <link rel='manifest' href='manifest.webmanifest.json' />
+    <link rel='manifest' href='/manifest.webmanifest.json' />
     <title>Escalas de SedoAnalegesia</title>
     <meta
       name='description'
@@ -27,17 +31,17 @@ import '../styles/global.css'
     <meta name='author' content='Gabriel Aguero' />
     <link rel='icon' type='image/ico' href='/favicon.ico' />
     <meta name='generator' content={Astro.generator} />
-    <link rel='canonical' href='https://analgosedacion-app.vercel.app/' />
+    <link rel='canonical' href={canonicalURL} />
 
     <!-- Open Graph -->
-    <meta property='og:url' content='https://analgosedacion-app.vercel.app/' />
+    <meta property='og:url' content={canonicalURL} />
     <meta property='og:type' content='website' />
     <meta property='og:title' content='Escalas de Analgosedación' />
     <meta
       property='og:description'
       content='Aplicación para el calculo de escalas de Analgosedación'
     />
-    <meta property='og:image' content='/portada.jpg' />
+    <meta property='og:image' content={ogImage} />
     <meta property='og:locale' content='es_ES' />
 
     <!-- Twitter -->

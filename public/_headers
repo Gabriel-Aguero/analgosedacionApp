@@ -1,0 +1,15 @@
+# El service worker y el manifest no deben cachearse para que el PWA autoUpdate funcione
+/sw.js
+  Cache-Control: no-cache
+/registerSW.js
+  Cache-Control: no-cache
+/workbox-*.js
+  Cache-Control: no-cache
+/manifest.webmanifest
+  Cache-Control: no-cache
+/manifest.webmanifest.json
+  Cache-Control: no-cache
+
+# Assets con hash generados por Astro/Vite
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

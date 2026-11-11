@@ -7,6 +7,14 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
+  // Dominio público del sitio (usado para canonical y Open Graph).
+  // TODO: reemplazar por el dominio de Cloudflare (workers.dev o dominio propio).
+  site: "https://analgosedacion-app.vercel.app",
+
+  // Genera /escala-flacc.html (en vez de /escala-flacc/index.html) para que
+  // Cloudflare sirva /escala-flacc sin redirigir a la versión con barra final.
+  build: { format: "file" },
+
   vite: {
     plugins: [tailwindcss()],
   },
@@ -26,7 +34,7 @@ export default defineConfig({
         name: "Analgosedación",
         short_name: "Analgosedación",
         description: "Escalas y herramientas para analgosedación en pediatría.",
-        start_url: "/index.astro",
+        start_url: "/",
         scope: "/",
         display: "standalone",
         background_color: "#ffffff",
