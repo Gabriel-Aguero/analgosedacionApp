@@ -21,7 +21,7 @@ There is no test suite or linter configured.
 
 ## Architecture
 
-Astro 5 (static output) + Preact islands + Tailwind CSS v4 (via `@tailwindcss/vite`; `src/styles/global.css` only contains `@import "tailwindcss"`, no tailwind config file).
+Astro 7 (static output) + Preact islands + Tailwind CSS v4 (via `@tailwindcss/vite`; `src/styles/global.css` only contains `@import "tailwindcss"`, no tailwind config file).
 
 - **Pages** (`src/pages/*.astro`): file-based routes. Each scale page is a thin wrapper: `<Layout><EscalaX client:load /></Layout>`. Hub/landing pages (`home.astro`, `escala-dolor.astro`, `otras-escalas.astro`, legal pages) are mostly static Astro markup. `index.astro` renders `home.astro` as a component (so `/home` is also a route).
 - **Scale components** (`src/components/Escala*.jsx`): each is a self-contained Preact component (300–650 lines) holding its own criteria definitions as a local object (e.g. `criteriosFLACC`), `useState` for selected scores, total-score computation, interpretation/recommendation, a reset button, and a print button (`window.print()`). There is no shared scale abstraction — new scales follow the same pattern by copying an existing component. No persistence (no localStorage/backend).
@@ -38,7 +38,7 @@ Astro 5 (static output) + Preact islands + Tailwind CSS v4 (via `@tailwindcss/vi
 
 ## PWA
 
-Configured via `@vite-pwa/astro` in `astro.config.mjs` (`registerType: "autoUpdate"`, workbox precache of js/css/html/svg/png/ico/webp/json). Note there is also a hand-written `public/manifest.webmanifest.json` linked from `Layout.astro`; keep both in sync when changing manifest fields. `InstallButton.jsx` handles `beforeinstallprompt`; `IOSNotice.jsx` shows install instructions on iOS.
+Configured via `@vite-pwa/astro` v2 in `astro.config.mjs` (named export `AstroPWAIntegration`; workbox options go under `generateSW`, the old `workbox` key is deprecated; `registerType: "autoUpdate"`, precache of js/css/html/svg/png/ico/webp/json). Note there is also a hand-written `public/manifest.webmanifest.json` linked from `Layout.astro`; keep both in sync when changing manifest fields. The SW is registered by `<script src='/registerSW.js'>` in `Layout.astro` (pages not using the Layout won't register it). `includeManifestIcons: false` is required: the icons are already matched by `globPatterns`, and duplicates with different revisions make Workbox throw while evaluating `sw.js` (SW silently never installs). `InstallButton.jsx` handles `beforeinstallprompt`; `IOSNotice.jsx` shows install instructions on iOS.
 
 `public/ads.txt` and the AdSense script in the layout are required for ads — don't remove them.
 

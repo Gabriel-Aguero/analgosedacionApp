@@ -57,6 +57,8 @@ const ogImage = new URL('/portada.jpg', Astro.site)
       async
       src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9375624748703428'
       crossorigin='anonymous'></script>
+    <!-- Registra el service worker generado por @vite-pwa/astro (offline + autoUpdate) -->
+    <script is:inline src='/registerSW.js' defer></script>
   </head>
   <body class='bg-white'>
     <div class='flex-col md:flex md:flex-row min-h-screen'>

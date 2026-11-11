@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import VitePWA from "@vite-pwa/astro";
+import { AstroPWAIntegration } from "@vite-pwa/astro";
 import tailwindcss from "@tailwindcss/vite";
 
 import preact from "@astrojs/preact";
@@ -21,10 +21,13 @@ export default defineConfig({
 
   integrations: [
     preact(),
-    VitePWA({
+    AstroPWAIntegration({
       registerType: "autoUpdate", // Actualiza el SW automáticamente
+      // Los íconos ya entran por globPatterns; incluirlos de nuevo genera entradas
+      // duplicadas con distinta revisión y Workbox falla al evaluar sw.js.
+      includeManifestIcons: false,
 
-      workbox: {
+      generateSW: {
         globPatterns: ["**/*.{js,css,html,svg,png,ico,webp,json}"],
         cleanupOutdatedCaches: true,
         clientsClaim: true,

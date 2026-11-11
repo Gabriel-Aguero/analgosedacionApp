@@ -2,6 +2,10 @@
 import { Email } from "../icons/Email";
 import { Github } from "../icons/Github";
 import { Linkedin } from "../icons/Linkedin";
+
+// Año del build como respaldo; el script de abajo lo actualiza en el navegador
+// (el sitio es estático y queda cacheado por el service worker).
+const buildYear = new Date().getFullYear();
 ---
 
 <footer class="bg-gray-800 text-white mt-auto">
@@ -103,7 +107,7 @@ import { Linkedin } from "../icons/Linkedin";
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="text-gray-300 text-center text-sm mb-4 md:mb-0">
           <p>
-            &copy; 2025 | Creado y diseñado con mucho ❤️​ por <a
+            &copy; <span id="footer-year">{buildYear}</span> | Creado y diseñado con mucho ❤️​ por <a
               class="text-orange-300"
               href="https://www.devgaby.dev/"
               target="_blank">Gabriel Agüero</a
@@ -140,3 +144,7 @@ import { Linkedin } from "../icons/Linkedin";
     </div>
   </div>
 </footer>
+
+<script is:inline>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
